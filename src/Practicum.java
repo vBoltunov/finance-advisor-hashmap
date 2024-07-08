@@ -39,6 +39,14 @@ public class Practicum {
                         + ExpensesManager.findMaxExpenseInCategory(category) + " руб.");
             } else if (command == 6) {
                 expensesManager.removeAllExpenses();
+            } else if (command == 7) {
+//                System.out.println("Всего потрачено: " + ...);
+            } else if (command == 8) {
+                System.out.println("Какую категорию вы хотите удалить?");
+                String category = scanner.next();
+
+            } else if (command == 9) {
+                // напечатайте фразу "В категории ИМЯ_КАТЕГОРИИ вы потратили больше всего.");
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;
@@ -56,6 +64,9 @@ public class Practicum {
         System.out.println("4 - Показать траты по категориям");
         System.out.println("5 - Показать самую большую трату в выбранной категории");
         System.out.println("6 - Очистить таблицу трат");
+        System.out.println("7 - Вернуть сумму всех трат");
+        System.out.println("8 - Удалить категорию");
+        System.out.println("9 - Получить имя самой дорогой категории");
         System.out.println("0 - Выход");
     }
 }
