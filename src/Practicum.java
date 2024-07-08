@@ -19,7 +19,8 @@ public class Practicum {
 
             if (command == 1) {
                 System.out.println("Ваши сбережения: " + moneyBeforeSalary + " RUB");
-                System.out.println("В какую валюту хотите конвертировать? Доступные варианты: 1 - USD, 2 - EUR, 3 - CNY.");
+                System.out.println("В какую валюту хотите конвертировать? " +
+                        "Доступные варианты: 1 - USD, 2 - EUR, 3 - CNY.");
                 int currency = scanner.nextInt();
                 converter.convert(moneyBeforeSalary, currency);
             } else if (command == 2) {
@@ -40,13 +41,14 @@ public class Practicum {
             } else if (command == 6) {
                 expensesManager.removeAllExpenses();
             } else if (command == 7) {
-//                System.out.println("Всего потрачено: " + ...);
+                System.out.println("Всего потрачено: " + ExpensesManager.getExpensesSum());
             } else if (command == 8) {
                 System.out.println("Какую категорию вы хотите удалить?");
                 String category = scanner.next();
-
+                expensesManager.removeCategory(category);
             } else if (command == 9) {
-                // напечатайте фразу "В категории ИМЯ_КАТЕГОРИИ вы потратили больше всего.");
+                System.out.println("В категории " + expensesManager.getMaxCategoryName()
+                        + " вы потратили больше всего.");
             } else if (command == 0) {
                 System.out.println("Выход");
                 break;

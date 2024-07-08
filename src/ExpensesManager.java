@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 
 public class ExpensesManager {
@@ -58,13 +59,37 @@ public class ExpensesManager {
     }
 
     // напишите метод для получения суммы всех трат
+    static Double getExpensesSum() {
+        double result = 0;
+        for (ArrayList<Double> expenses : expensesByCategories.values()) {
+            for (double expense : expenses) {
+                result += expense;
+            }
+        }
+        return result;
+    }
 
     // напишите метод для удаления категории
+    void removeCategory(String name) {
+        expensesByCategories.remove(name);
+    }
 
     // напишите метод для получения категории, где размер трат больше всего
-    // используйте эти переменные для сохранения промежуточных значений
-    double maxCategorySum = 0;
-    String maxCategoryName = "";
+    String getMaxCategoryName() {
+        String maxCategoryName = "";
+        double maxCategorySum = 0;
+
+        for (String category : expensesByCategories.keySet()) {
+            ArrayList<Double> expenses = expensesByCategories.get(category);
+            double sum = 0;
+            for (double expense : expenses) {
+                sum += expense;
+            }
+            if (sum > maxCategorySum) {
+                maxCategorySum = sum;
+                maxCategoryName = category;
+            }
+        }
+        return maxCategoryName;
+    }
 }
-
-
